@@ -111,8 +111,8 @@ label natty
     <pre>
 Vagrant::Config.run do |global_config|
   global_config.vm.define :chef do |config|
-    config.vm.box = "base"
     config.vm.box_url = <strong>"http://images.anso.com/vagrant/maverick64.box"</strong>
+    config.vm.box = "base"
     <strong>config.vm.share_folder("v-apt", "/var/cache/apt", aptdir)</strong>
     <strong>config.vm.provision :chef_solo do |chef|</strong>
       chef.run_list = [
@@ -124,6 +124,45 @@ Vagrant::Config.run do |global_config|
     end
   end
 end
+    </pre>
+  </section>
+
+  <section class="slide" id="cooltech-lxc">
+    <header><h1>lxc</h1></header>
+    <blockquote>Holy p*rkele that was fast. <cite>--termie</cite></blockquote>
+    <ul>
+      <li>sort of like a super chroot</li>
+      <li>outrageously quick startup time (seconds)</li>
+      <li>looks like a VM, but isn't actually virtualized</li>
+      <li>great for utility VMs or testing environments</li>
+      <li>requires a bit of setup the first time</li>
+    </ul>
+  </section>
+  <section class="slide" id="cooltech-lxc-example">
+    <header><h1>lxc example</h1></header>
+    <!--<h2>build_lxc.sh</h2>-->
+    <pre>
+# Create lxc configuration
+LXC_CONF=/tmp/$CONTAINER.conf
+cat &gt; $LXC_CONF &lt;&lt;EOF
+lxc.network.type = veth
+lxc.network.link = $BRIDGE
+lxc.network.flags = up
+lxc.network.ipv4 = $CONTAINER_CIDR
+EOF
+
+# Create the container
+<strong>lxc-create -n $CONTAINER -t natty -f $LXC_CONF</strong>
+
+# Specify where our container rootfs lives
+ROOTFS=<strong>/var/lib/lxc/$CONTAINER/rootfs/</strong>
+
+# Copy over your ssh keys and env if desired
+cp ~/.ssh $ROOTFS/$DEST/.ssh
+cp ~/.ssh/id_rsa.pub $ROOTFS/$DEST/.ssh/authorized_keys
+cp ~/.gitconfig $ROOTFS/$DEST/.gitconfig
+cp ~/.vimrc $ROOTFS/$DEST/.vimrc
+cp ~/.bashrc $ROOTFS/$DEST/.bashrc
     </pre>
   </section>
 
