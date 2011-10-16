@@ -203,6 +203,34 @@ django-registration==0.7
 </pre>
   </section>
 
+    <section class="slide" id="cooltools-virtualenv">
+    <header><h1>virtualenv</h1></header>
+    <ul>
+      <li>keep packages separate between projects</li>
+      <li>crucial if you work for multiple clients</li>
+      <li>great for keeping track of dependencies</li>
+      <li>great shell integration using virtualenvwrapper.sh</li>
+    </ul>
+  </section>
+  <section class="slide" id="cooltools-virtualenv-example">
+    <header><h1>virtualenvwrapper.sh example</h1></header>
+    <pre>
+termie@grout:~ % <strong>mkvirtualenv pycon</strong>
+<strong>New python executable in pycon/bin/python</strong>
+Installing setuptools............done.
+Installing pip...............done.
+virtualenvwrapper.user_scripts creating /Users/termie/.venv/pycon/bin/predeactivate
+virtualenvwrapper.user_scripts creating /Users/termie/.venv/pycon/bin/postdeactivate
+virtualenvwrapper.user_scripts creating /Users/termie/.venv/pycon/bin/preactivate
+virtualenvwrapper.user_scripts creating /Users/termie/.venv/pycon/bin/postactivate
+virtualenvwrapper.user_scripts creating /Users/termie/.venv/pycon/bin/get_env_details
+<strong>(pycon)</strong>termie@grout:~ %
+(pycon)termie@grout:~ % <strong>deactivate</strong>
+termie@grout:~ % <strong>workon pycon</strong>
+(pycon)termie@grout:~ %
+</pre>
+  </section>
+
 
 
   <section class="slide" id="questions">
