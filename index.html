@@ -62,13 +62,13 @@
       <li><strong>pxe</strong>: a way to network boot actual machines</li>
       <li><strong>vagrant</strong>: a command-line tool for spawning virtual machines</li>
       <li><strong>lxc</strong>: something like a virtual machine that is built into linux</li>
-      <li><strong>openvswitch</strong>: virtualized networking</li>
+      <li><strong>open vswitch</strong>: virtualized networking</li>
     </ul>
   </section>
 
   <section class="slide" id="cooltech-pxe">
     <header><h1>pxe</h1></header>
-    <blockquote>PXE is really old... by internet standards at least. But I just learned about it. <cite>--termie</cite></blockquote>
+    <blockquote>PXE is really old... but I just learned about it. <cite>--termie</cite></blockquote>
     <ul>
       <li>manage boot devices for a machine</li>
       <li>boot from an image served over the network</li>
@@ -76,6 +76,7 @@
       <li>we use it to rapidly deploy clouds</li>
       <li>works via tftp... which is even older (1980!?)</li>
     </ul>
+    here: <a href="http://en.wikipedia.org/wiki/Preboot_Execution_Environment">http://en.wikipedia.org/wiki/Preboot_Execution_Environment</a>
   </section>
 
   <section class="slide" id="cooltech-pxe-1">
@@ -104,6 +105,7 @@ label natty
       <li>integrates with chef and puppet for provisioning</li>
       <li>ruby... darn. (don't forget to `gem update --system`)</li>
     </ul>
+    here: <a href="http://vagrantup.com/">http://vagrantup.com/</a>
   </section>
   <section class="slide" id="cooltech-vagrant-example">
     <header><h1>vagrant example</h1></header>
@@ -123,8 +125,7 @@ Vagrant::Config.run do |global_config|
       ]
     end
   end
-end
-    </pre>
+end</pre>
   </section>
 
   <section class="slide" id="cooltech-lxc">
@@ -137,6 +138,7 @@ end
       <li>great for utility VMs or testing environments</li>
       <li>requires a bit of setup the first time</li>
     </ul>
+    here: <a href="http://lxc.sourceforge.net/">http://lxc.sourceforge.net/</a>
   </section>
   <section class="slide" id="cooltech-lxc-example">
     <header><h1>lxc example</h1></header>
@@ -162,8 +164,18 @@ cp ~/.ssh $ROOTFS/$DEST/.ssh
 cp ~/.ssh/id_rsa.pub $ROOTFS/$DEST/.ssh/authorized_keys
 cp ~/.gitconfig $ROOTFS/$DEST/.gitconfig
 cp ~/.vimrc $ROOTFS/$DEST/.vimrc
-cp ~/.bashrc $ROOTFS/$DEST/.bashrc
-    </pre>
+cp ~/.bashrc $ROOTFS/$DEST/.bashrc</pre>
+  </section>
+
+  <section class="slide" id="cooltech-openvswitch">
+    <header><h1>open vswitch</h1></header>
+    <ul>
+      <li>it's really cool... but really complicated to explain.</li>
+      <li>virtual networks for your virtual machines!</li>
+      <li>if you are into networking, check it out</li>
+    </ul>
+    <img class="slide" src="picard_sigh.jpeg" />
+    here: <a href="http://openvswitch.org/">http://openvswitch.org/</a>
   </section>
 
   <section class="slide" id="cooltools">
@@ -184,6 +196,7 @@ cp ~/.bashrc $ROOTFS/$DEST/.bashrc
       <li>pip-requires for managing project dependencies</li>
       <li>integrates with virtualenv</li>
     </ul>
+    here: <a href="http://pypi.python.org/pypi/pip">http://pypi.python.org/pypi/pip</a>
   </section>
   <section class="slide" id="cooltools-pip-example">
     <header><h1>pip example</h1></header>
@@ -198,8 +211,7 @@ django-registration==0.7
 
 -e bzr+https://launchpad.net/glance#egg=glance
 <strong>-e git://github.com/jacobian/openstack.compute.git#egg=openstack</strong>
--e git://github.com/cloudbuilders/openstackx.git#egg=openstackx
-</pre>
+-e git://github.com/cloudbuilders/openstackx.git#egg=openstackx</pre>
   </section>
 
     <section class="slide" id="cooltools-virtualenv">
@@ -210,6 +222,8 @@ django-registration==0.7
       <li>great for keeping track of dependencies</li>
       <li>great shell integration using virtualenvwrapper.sh</li>
     </ul>
+    here: <a href="http://pypi.python.org/pypi/virtualenv">http://pypi.python.org/pypi/virtualenv</a>
+    <br />and here: <a href="http://www.doughellmann.com/projects/virtualenvwrapper/">http://www.doughellmann.com/projects/virtualenvwrapper/</a>
   </section>
   <section class="slide" id="cooltools-virtualenv-example">
     <header><h1>virtualenvwrapper.sh example</h1></header>
@@ -226,11 +240,10 @@ virtualenvwrapper.user_scripts creating /Users/termie/.venv/pycon/bin/get_env_de
 <strong>(pycon)</strong>termie@grout:~ %
 (pycon)termie@grout:~ % <strong>deactivate</strong>
 termie@grout:~ % <strong>workon pycon</strong>
-(pycon)termie@grout:~ %
-    </pre>
+(pycon)termie@grout:~ %</pre>
   </section>
 
-    <section class="slide" id="cooltools-shocco">
+  <section class="slide" id="cooltools-shocco">
     <header><h1>shocco</h1></header>
     <ul>
       <li>generates html docs for your shell scripts</li>
@@ -238,13 +251,125 @@ termie@grout:~ % <strong>workon pycon</strong>
       <li>looks good too!</li>
       <li>we use it for one of our large scripts: <a href="http://devstack.org/stack.sh.html">stack.sh</a></li>
     </ul>
+    here: <a href="http://rtomayko.github.com/shocco/">http://rtomayko.github.com/shocco/</a>
   </section>
   <section class="slide" id="cooltools-shocco-example">
     <header><h1>shocco.sh example</h1></header>
     <img src="shocco.png" />
   </section>
 
+  <section class="slide" id="cooltools-deckjs">
+    <header><h1>BONUS: deck.js</h1></header>
+    <ul>
+      <li>it is powering this presentation right now!</li>
+      <li>... so I hope it hasn't broken</li>
+      <li>found out about it last night and ported my talk to it</li>
+      <li>plain html5, css and javascript... though the documentation is a little lacking</li>
+    </ul>
+    here: <a href="http://imakewebthings.github.com/deck.js/">http://imakewebthings.github.com/deck.js/</a>
+  </section>
 
+  <section class="slide" id="coolhacks">
+    <header><h1>cool hacks</h1></header>
+    <ul>
+      <li><strong>build_ramdisk.sh</strong>: put the whole system in a ramdisk</li>
+      <li><strong>install_venv.py</strong>: install all dependencies in a virtualenv for tests</li>
+      <li><strong>colorized, formatted and timed nosetests</strong></li>
+      <li><strong>spawn multiple processes in screens</strong></li>
+    </ul>
+  </section>
+
+  <section class="slide" id="coolhacks-ramdisk">
+    <header><h1>build_ramdisk.sh</h1></header>
+    <ul>
+      <li>real servers take a long time to reboot, this cuts one reboot out of the provisioning step</li>
+      <li>prebuild the entire testing environment</li>
+      <li>the machine PXE boots ready to test, no additional provisioning step</li>
+      <li>great for testing small changes on real machines</li>
+    </ul>
+    here: <a href="https://github.com/cloudbuilders/devstack/blob/master/tools/build_ramdisk.sh">https://github.com/cloudbuilders/devstack/blob/master/tools/build_ramdisk.sh</a>
+  </section>
+
+  <section class="slide" id="coolhacks-installvenv">
+    <header><h1>install_venv.py</h1></header>
+    <ul>
+      <li>install a new virtualenv based on a pip-requires file</li>
+      <li>ensures people who check out your code have the same environment</li>
+      <li>fewer spurious bug reports from people with bad dependencies</li>
+      <li>integrated with testing shell script</li>
+    </ul>
+    here: <a href="https://github.com/openstack/nova/blob/master/tools/install_venv.py">https://github.com/openstack/nova/blob/master/tools/install_venv.py</a>
+
+    </section>
+
+  <section class="slide" id="coolhacks-colorednose">
+    <header><h1>colorized, formatted and timed nosetests</h1></header>
+  <pre>
+QuotaSetsTest
+    test_format_quota_set                         OK  0.00
+    test_quotas_defaults                          OK  0.57
+    test_quotas_show_as_admin                     OK  0.48
+    test_quotas_show_as_unauthorized_user         OK  0.48
+    test_quotas_update_as_admin                   OK  0.63
+    test_quotas_update_as_user                    OK  0.40
+RescueTest
+    test_rescue_generates_password                OK  0.51
+    test_rescue_with_preset_password              OK  0.40
+    test_unrescue                                 OK  0.40
+TestSecurityGroupRules
+    test_create_add_existing_rules_json           OK  <span style="color: red;">1.60</span>
+    test_create_by_cidr_json                      OK  <span style="color: red;">1.67</span>
+    test_create_by_group_id_json                  OK  <span style="color: red;">1.69</span>
+    ...
+Slowest 5 tests took 36.63 secs:
+    ...</pre>
+
+    here: <a href="https://github.com/openstack/nova/blob/master/run_tests.py">https://github.com/openstack/nova/blob/master/run_tests.py</a>
+  </section>
+
+  <section class="slide" id="coolhacks-screenit">
+    <header><h1>spawn multiple processes in screens</h1></header>
+  <pre>
+# screen helper to launch a service in a hidden named screen
+function screen_it {
+    NL=`echo -ne '\015'`
+    if [[ "$ENABLED_SERVICES" =~ "$1" ]]; then
+        screen -S nova -X screen -t $1
+        screen -S nova -p $1 -X stuff "$2$NL"
+    fi
+}
+
+# create a new named screen to run processes in
+screen -d -m -S nova -t nova
+
+# launch some services
+screen_it n-net "cd $NOVA_DIR && $NOVA_DIR/bin/nova-network"
+screen_it n-sch "cd $NOVA_DIR && $NOVA_DIR/bin/nova-scheduler"</pre>
+    here: <a href="https://github.com/cloudbuilders/devstack/blob/master/stack.sh">https://github.com/cloudbuilders/devstack/blob/master/stack.sh</a>
+  </section>
+
+  <section class="slide" id="plug">
+    <header><h1>shame, shame</h1></header>
+    <h1>try my product!</h1>
+  </section>
+
+  <section class="slide" id="git-bzr-ng">
+    <header><h1>git-bzr-ng</h1></header>
+    <ul>
+      <li>a really don't like bzr</li>
+      <li>a really do like git</li>
+      <li>for a while our project was using launchpad (bzr)</li>
+      <li>... so I wrote a bi-directional git &lt;--&gt; bzr bridge</li>
+      <li>work in git, push to and pull from bzr</li>
+      <li>it is all in python, also</li>
+    </ul>
+    here: <a href="https://github.com/termie/git-bzr-ng">https://github.com/termie/git-bzr-ng</a>
+  </section>
+
+  <section class="slide" id="uplift">
+    <header><h1>get ready to be uplifted</h1></header>
+    <img src="uplift.jpg" />
+  </section>
 
   <section class="slide" id="questions">
     <header><h1>questions!</h1></header>
