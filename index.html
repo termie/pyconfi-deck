@@ -166,6 +166,43 @@ cp ~/.bashrc $ROOTFS/$DEST/.bashrc
     </pre>
   </section>
 
+  <section class="slide" id="cooltools">
+    <header><h1>cool tools</h1></header>
+    <ul>
+      <li><strong>pip</strong>: install python packages</li>
+      <li><strong>virtualenv</strong>: keep packages for different projects separate</li>
+      <li><strong>eventlet</strong>: coroutine-based networking library</li>
+      <li><strong>shocco</strong>: self-documenting shell scripts</li>
+      <li>BONUS <strong>deck.js</strong>: what this presentation is using</li>
+    </ul>
+  </section>
+
+  <section class="slide" id="cooltools-pip">
+    <header><h1>pip</h1></header>
+    <ul>
+      <li>a better easy_install</li>
+      <li>knows about version control</li>
+      <li>pip-requires for managing project dependencies</li>
+      <li>integrates with virtualenv</li>
+    </ul>
+  </section>
+  <section class="slide" id="cooltools-pip-example">
+    <header><h1>pip example</h1></header>
+    <h2>pip-requires</h2>
+    <pre>
+boto==1.9b
+nose==1.0.0
+<strong>Django==1.3</strong>
+django-nose==0.1.2
+django-registration==0.7
+<strong>nova-adminclient</strong>
+
+-e bzr+https://launchpad.net/glance#egg=glance
+<strong>-e git://github.com/jacobian/openstack.compute.git#egg=openstack</strong>
+-e git://github.com/cloudbuilders/openstackx.git#egg=openstackx
+</pre>
+  </section>
+
 
 
   <section class="slide" id="questions">
