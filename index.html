@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+<meta charset="utf-8">
+<!--<meta name="viewport" content="width=960">-->
+
+<title>Build Your Own Cloud</title>
+
+<link rel="stylesheet" href="./common.css">
+<link rel="stylesheet" href="../core/deck.core.css">
+<link rel="stylesheet" href="../extensions/hash/deck.hash.css">
+
+<link rel="stylesheet" id="style-theme-link" href="../themes/style/web-2.0.css">
+<link rel="stylesheet" id="transition-theme-link" href="../themes/transition/horizontal-slide.css">
+
+
+<link rel="stylesheet" href="../extensions/status/deck.status.css">
+<!--<link rel="stylesheet" href="./home.css">-->
+<link rel="stylesheet" href="./header.css">
+
+<script src="../modernizr.custom.js"></script>
+
+</head>
+<body>
+<article class="deck-container" id="container">
+
+  <section class="slide" id="splash">
+    <header>
+      <h1>actually, don't</h1>
+    </header>
+    <h1>build yer own frickin cloud</h1>
+  </section>
+
+  <section class="slide" id="aboutthetalk">
+    <header>
+      <h1>what is this talk about</h1>
+    </header>
+    <ul>
+      <li class="slide">a little bit about me</li>
+      <li class="slide">a little more about OpenStack</li>
+      <li class="slide">a bunch about cool tech we use</li>
+      <li class="slide">a bit about some cool tools you should use</li>
+      <li class="slide">a bit about some cool hacks we did</li>
+      <li class="slide">a little bit about some tools I wrote</li>
+      <li class="slide">an uplifting statement about the future</li>
+    </ul>
+  </section>
+
+  <section class="slide" id="aboutme">
+    <header><h1>who is termie</h1></header>
+    <img src="termie.jpeg"/>
+  </section>
+
+  <section class="slide" id="aboutopenstack">
+    <header><h1>what is openstack</h1></header>
+    <img src="openstack.png"/>
+  </section>
+
+  <section class="slide" id="cooltech">
+    <header><h1>cool tech</h1></header>
+    <ul>
+      <li><strong>pxe</strong>: a way to network boot actual machines</li>
+      <li><strong>vagrant</strong>: a command-line tool for spawning virtual machines</li>
+      <li><strong>lxc</strong>: something like a virtual machine that is built into linux</li>
+      <li><strong>openvswitch</strong>: virtualized networking</li>
+    </ul>
+  </section>
+
+  <section class="slide" id="cooltech-pxe">
+    <header><h1>pxe</h1></header>
+    <blockquote>PXE is really old... by internet standards at least. But I just learned about it. <cite>--termie</cite></blockquote>
+    <ul>
+      <li>manage boot devices for a machine</li>
+      <li>boot from an image served over the network</li>
+      <li>used to install new base machines</li>
+      <li>we use it to rapidly deploy clouds</li>
+      <li>works via tftp... which is even older (1980!?)</li>
+    </ul>
+  </section>
+
+  <section class="slide" id="cooltech-pxe-1">
+    <header><h1>example pxe config</h1></header>
+    <h2>01-78-2b-cb-13-8c-84</h2>
+    <pre>
+default menu.c32
+prompt 0
+menu title PXE Boot
+timeout 100
+
+label natty
+      menu label Ubuntu Natty (amd64)
+      kernel <strong>ubuntu/natty-amd64/linux</strong>
+      append auto=true priority=critical vga=788 <strong>initrd=ubuntu/natty-amd64/initrd.gz</strong> languagechooser/language-name=English countrychooser/shortlist=US console-keymaps-at/keymap=en <strong>preseed/url=http://192.168.1.2:80/preseed/14</strong> netcfg/dhcp_timeout=60 netcfg/choose_interface=auto console=tty console=ttyS1,115200n8
+    </pre>
+  </section>
+
+  <section class="slide" id="cooltech-vagrant">
+    <header><h1>vagrant</h1></header>
+    <img src="vagrant.png" style="max-height: 200px;"/>
+    <ul>
+      <li>cli for spawning virtualbox instances</li>
+      <li>works on windows, linux, os x</li>
+      <li>quick, multi-platform way to spawn a vm</li>
+      <li>integrates with chef and puppet for provisioning</li>
+      <li>ruby... darn. (don't forget to `gem update --system`)</li>
+    </ul>
+  </section>
+  <section class="slide" id="cooltech-vagrant-example">
+    <header><h1>vagrant example</h1></header>
+    <h2>Vagrantfile</h2>
+    <pre>
+Vagrant::Config.run do |global_config|
+  global_config.vm.define :chef do |config|
+    config.vm.box = "base"
+    config.vm.box_url = <strong>"http://images.anso.com/vagrant/maverick64.box"</strong>
+    <strong>config.vm.share_folder("v-apt", "/var/cache/apt", aptdir)</strong>
+    <strong>config.vm.provision :chef_solo do |chef|</strong>
+      chef.run_list = [
+        "recipe[apt]",
+        "recipe[chef::bootstrap_server]",
+        "recipe[anso::cookbooks]",
+        "recipe[nginx]",
+      ]
+    end
+  end
+end
+    </pre>
+  </section>
+
+
+
+  <section class="slide" id="questions">
+    <header><h1>questions!</h1></header>
+    <center>
+    <p>email me: termie@openstack.org</p>
+    <p>this presentation: <a href="http://term.ie/data/pycon.fi/">term.ie/data/pycon.fi/</a></p>
+    <p>my github: <a href="http://github.com/termie">github.com/termie</a>
+  </center>
+    <h1>Questions?</h1>
+  </section>
+
+</article>
+
+
+<footer>
+  <p>pycon dot eff eye</p>
+  <p class="deck-status">
+    <span class="deck-status-current"></span>
+    /
+    <span class="deck-status-total"></span>
+  </p>
+</footer>
+
+<script src="../jquery-1.6.4.min.js"></script>
+<script src="../core/deck.core.js"></script>
+<script src="../extensions/status/deck.status.js"></script>
+<script src="../extensions/hash/deck.hash.js"></script>
+<script>
+$(function() {
+  $.deck('.slide', {
+    selectors: {
+      container: 'body > article'
+    },
+    keys: {
+      goto: -1 // No key activation
+    }
+  });
+});
+
+</script>
+</body>
+</html>

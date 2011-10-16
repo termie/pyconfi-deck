@@ -1,0 +1,102 @@
+body > header {
+  width: 100%;
+  min-height: 32px;
+  /*background: #333;*/
+  overflow: hidden;
+  position: relative;
+  z-index: 4;
+}
+#container > section.slide > header {
+  width: 100%;
+  min-height: 32px;
+  /*background: #333;*/
+  border-bottom: 1px solid #333;
+  overflow: hidden;
+  position: relative;
+  z-index: 4;
+}
+#container > section.slide > header {
+  margin: 0 auto;
+  margin-bottom: 25px;
+  /*width: 960px;*/
+}
+#container > section.slide > header > h1{
+  float: left;
+  line-height: 32px;
+  font-size: 24px;
+  font-weight: normal;
+  padding: 0 0px !important;
+  position: relative;
+  -webkit-transform: none;
+  /*color: #FFF;*/
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+
+}
+#container > section.slide > header > h1 > a {
+  color: #fff;
+  text-decoration: none;
+}
+#container > section.slide > header > ul {
+  float: right;
+  font-weight: bold;
+  color: #fff;
+}
+#container > section.slide > header > ul li {
+  float: left;
+  height: 32px;
+  line-height: 32px;
+  padding: 0 20px;
+  color: #fff !important;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+#container > section.slide > header > ul li a {
+  display: block;
+  height: 32px;
+  line-height: 32px;
+  color: #888 !important;
+  text-decoration: none;
+  text-shadow: none;
+}
+#container > section.slide > header > ul li a:hover, #container > section.slide > header > ul li a:focus {
+  color: #ddd !important;
+}
+
+.slide > ul > li {
+  font-size: 32px;
+}
+
+.slide > h1 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+}
+
+
+/* Code samples */
+#container > pre {
+  border: 1px solid #ddd;
+  padding: 10px;
+  background: #fff;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.05) inset;
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.05) inset;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.05) inset;
+  position: relative;
+  float: right;
+  width: 435px;
+  margin: 32px 0 16px 30px;
+}
+#container > pre:before {
+  position: absolute;
+  content: "";
+  z-index: -2;
+  top: 10px;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  -moz-border-radius: 10px/150px;
+  border-radius: 10px/150px;
+}
+#container > pre > code {
+  color: #aaa;
+}
