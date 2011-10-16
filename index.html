@@ -171,7 +171,6 @@ cp ~/.bashrc $ROOTFS/$DEST/.bashrc
     <ul>
       <li><strong>pip</strong>: install python packages</li>
       <li><strong>virtualenv</strong>: keep packages for different projects separate</li>
-      <li><strong>eventlet</strong>: coroutine-based networking library</li>
       <li><strong>shocco</strong>: self-documenting shell scripts</li>
       <li>BONUS <strong>deck.js</strong>: what this presentation is using</li>
     </ul>
@@ -228,7 +227,21 @@ virtualenvwrapper.user_scripts creating /Users/termie/.venv/pycon/bin/get_env_de
 (pycon)termie@grout:~ % <strong>deactivate</strong>
 termie@grout:~ % <strong>workon pycon</strong>
 (pycon)termie@grout:~ %
-</pre>
+    </pre>
+  </section>
+
+    <section class="slide" id="cooltools-shocco">
+    <header><h1>shocco</h1></header>
+    <ul>
+      <li>generates html docs for your shell scripts</li>
+      <li>allows for easy explaining of complex scripts</li>
+      <li>looks good too!</li>
+      <li>we use it for one of our large scripts: <a href="http://devstack.org/stack.sh.html">stack.sh</a></li>
+    </ul>
+  </section>
+  <section class="slide" id="cooltools-shocco-example">
+    <header><h1>shocco.sh example</h1></header>
+    <img src="shocco.png" />
   </section>
 
 
