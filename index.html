@@ -185,6 +185,7 @@ cp ~/.bashrc $ROOTFS/$DEST/.bashrc</pre>
       <li><strong>virtualenv</strong>: keep packages for different projects separate</li>
       <li><strong>shocco</strong>: self-documenting shell scripts</li>
       <li>BONUS <strong>deck.js</strong>: what this presentation is using</li>
+      <li>DOUBLE BONUS! <strong>eventlet</strong>: coroutine-based networking library</li>
     </ul>
   </section>
 
@@ -267,6 +268,37 @@ termie@grout:~ % <strong>workon pycon</strong>
       <li>plain html5, css and javascript... though the documentation is a little lacking</li>
     </ul>
     here: <a href="http://imakewebthings.github.com/deck.js/">http://imakewebthings.github.com/deck.js/</a>
+  </section>
+
+  <section class="slide" id="cooltools-eventlet">
+    <header><h1>DOUBLE BONUS: eventlet</h1></header>
+    <ul>
+      <li>makes socket communications yield when waiting for i/o</li>
+      <li>somewhat like twisted, but you write code like normal</li>
+      <li>works with cool tech like zeromq</li>
+      <li>already has some helpful things like a wsgi server</li>
+      <li>gevent is like eventlet and a bit newer, if you're into that</li>
+    </ul>
+    here: <a href="http://eventlet.net/">http://eventlet.net/</a>
+    </section>
+    <section class="slide" id="cooltools-eventlet-sample">
+    <header><h1>eventlet example</h1></header>
+    <pre>
+import eventlet
+eventlet.monkey_patch()
+
+<strong>from eventlet import wsgi</strong>
+from django.core.management.commands import runserver
+
+
+class Command(runserver.Command):
+  args = '[optional port numer, or ipaddr:port]'
+  help = 'Starts a webserver using eventlet and wsgi'
+
+  def run(self, *args, **options):
+    handler = self.get_handler(*args, **options)
+    wsgi.server(<strong>eventlet.listen((self.addr, int(self.port)))</strong>,
+                handler)</pre>
   </section>
 
   <section class="slide" id="coolhacks">
