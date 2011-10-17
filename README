@@ -1,0 +1,57 @@
+Moi! And hyvaa... afternoon. I really only know how to say huomenta.
+
+Anyway, welcome :) And thanks for coming to see me talk about things I think are cool.
+
+
+--
+
+So, what is this talk about anyway? It's about a few things.
+
+It's about me because I like to talk about myself. Maybe this is an American thing.
+
+It's about OpenStack because that is why I know about the things that I am going to talk about and it is what I work on.
+
+It's about some cool technology, mostly related to setting up virtual machines and computers quickly for development.
+
+It's about a couple good python tools and libraries that everybody should be using. You may already know about some of them, but for some people these may be new.
+
+It's about some hacks we did to make our development process faster or better.
+
+It's a quick shoutout for a tool I wrote that you might like if you are forced to use a paritcular version control system that I don't like.
+
+And hopefully at the end I will have thought of something inspiring to say.
+
+---
+
+So, about me (my favorite part!).
+
+My name is Andy Smith, but most people call me termie. You can also.
+
+I am familiar with Finland (mostly Helsinki) because I was one of the guys who wrote Jaiku, along with Teemu Kurppa. Jaiku was mostly PHP on the frontend and Python with Twisted on the backend, but became all Python and Django on App Engine once we were acquired by Google some years ago.
+
+Since then I quit Google and started working on a project that became part of OpenStack and eventually got acquired by Rackspace earlier this year to continue working on that project.
+
+I enjoy bicycling, VI, two-space indents, pickles, and philosophical debates about code style.
+
+I'm a Python developer and like to complain about other languages, so maybe we can do this over beers later.
+
+---
+
+Some quick questions:
+
+ * Please, raise your hand if you know about Amazon EC2 or Rackspace Cloud
+ * And if you've ever used one of those?
+
+OpenStack is open source software for doing Infrastructure-as-a-Service. For example, if you wanted to set up a cluster of computers as something like Amazon EC2 or Rackspace Cloud inside your company so that developers have quick access to virtual machines to test on, or so that you can scale your web servers up quickly.
+
+OpenStack itself is a few different projects, the biggest pieces being Storage and Compute. Storage is named swift and is actually what is already powering Rackspace Cloud Files, a service very much like Amazon S3.
+
+The other big part is Compute, named nova, which provides services similar to AMazon EC2 and Amazon EBS, and which is now in alpha at Rackspace to eventually replace their current Cloud Servers offering.
+
+The project as a whole is very popular now, we have over 160 contributors, many companies using the software and contributing back, some of them are very big like HP, Dell, Cisco and Sony. Even Microsoft thinks it is important and is involved to make sure it supports launching virtual Windows machines.
+
+Everything in the project is in Python, which is awesome and one of the reasons I get to talk at Python conferences.
+
+If you have any specific questions about OpenStack, feel free to ask me after the talk or conference.
+
+---
